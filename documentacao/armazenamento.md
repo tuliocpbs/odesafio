@@ -39,7 +39,9 @@ Caso não fosse feita a simplifição com o Teorema de CAP outros fatores gerais
 * Arquitetura de banco de dados escolhida (isso pode variar muito por conta da possibilidade de utilizar mais de um tipo de base de dados).
 * Limites técnicos de cada base de dados como por exemplo quantidade de acessos por unidade de tempo, tempo de resposta, entre outros.
 * Variedade de bases de dados disponíveis no mercado.
+
 Em resumo, é possível montar várias arquiteturas diferentes para dar suporte a um mesmo projeto. Para definir uma boa arquitetura é necessário mais tempo e uma análise mais detalhada. 
+
 A imagem a seguir mostra algumas opções de bases de dados disponíveis no mercado, além de outras tecnologias.
 
 ![Imagem de Algumas Opções de Bases de Dados](https://github.com/tuliocpbs/odesafio/blob/master/imagens/datafloq.jpg)
