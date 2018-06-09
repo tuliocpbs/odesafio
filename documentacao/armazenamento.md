@@ -1,6 +1,6 @@
 # Armazenamento
 
-Embora no desafio esteja explícito que não é necessário escrever sobre a implementação das bases de dados, acho interessante levantar alguns pontos. Outra observação a ser feita é que para simplificar a escolha dos tipos de cada base de dados vou utilizar o teorema de CAP, que diz:
+Embora no desafio esteja explícito que não é necessário escrever sobre a implementação das bases de dados, acho interessante levantar alguns pontos. Outra observação a ser feita é que para simplificar a escolha dos tipos de cada base de dados (o motivo da simplificaço está explicada num tópico ao final do artigo) vou utilizar o Teorema de CAP, que diz:
 > É impossível que o o armazenamento de dados distribuído forneça simultaneamente mais de duas das três garantias seguintes:
 >* Consistência: Cada leitura recebe a escrita mais recente ou um erro.
 >* Disponibilidade: Cada pedido recebe uma resposta (sem erro) - sem garantia de que contém a escrita mais recente.
@@ -31,3 +31,15 @@ Além desses fatores, acredito que a segurança na base de dados A pode ser melh
 <!---A última base, é a Base C, que não possui nenhum tipo de dado crítico, mas precisa de um acesso extremamente rápido.--->
 
 ## *Base C*
+
+
+## Porque simplificar com o Teorema de CAP
+
+Caso não fosse feita a simplifição com o Teorema de CAP outros fatores gerais que deveriam ser analisados são:
+* Arquitetura de banco de dados escolhida (isso pode variar muito por conta da possibilidade de utilizar mais de um tipo de base de dados).
+* Limites técnicos de cada base de dados como por exemplo quantidade de acessos por unidade de tempo, tempo de resposta, entre outros.
+* Variedade de bases de dados disponíveis no mercado.
+Em resumo, é possível montar várias arquiteturas diferentes para dar suporte a um mesmo projeto. Para definir uma boa arquitetura é necessário mais tempo e uma análise mais detalhada. 
+A imagem a seguir mostra algumas opções de bases de dados disponíveis no mercado, além de outras tecnologias.
+
+![Imagem de Algumas Opções de Bases de Dados](https://github.com/tuliocpbs/odesafio/blob/master/imagens/datafloq.jpg)
