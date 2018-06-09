@@ -23,20 +23,28 @@ Além desses fatores, acredito que a segurança na base de dados A pode ser melh
 
 <!---Dados da Base A: CPF, Nome, Endereço, Lista de dívidas--->
 
-<!---A segunda, é a Base B que também possui dados críticos, mas ao contrário da Base A, o acesso precisa ser um pouco mais rápido. Uma outra característica da Base B é que além de consultas ela é utilizada para extração de dados por meio de algoritmos de aprendizado de máquina.--->
-
 ## *Base B*
+A Base B tem como principais necessidades a Consistência (utilizar os dados corretos) e a Disponibilidade (acesso mais rápido aos dados), deixando em segundo plano a Tolerância a Falhas. Acrescentando o fato de já ter trabalhado com essa base de dados, para a Base B escolheria PostgreSQL. Mas outras bases que poderiam ser analisadas são Oracle, IBM DB2, todas RDBMS (Relational Database Management Systems) e possuem a mesma finalidade.
 
+Alguns pontos tratados para a Base A com relação a segurança dos dados podem também ser utilizados na Base B.
 
-<!---A última base, é a Base C, que não possui nenhum tipo de dado crítico, mas precisa de um acesso extremamente rápido.--->
+Na hora de consultar a Base B é preciso levar em consideração também que para o serviço de cálculo do Score de Crédito o melhor fazer uma consulta por bloco. Isso agilizará o processo de consulta para esse serviço.
+
+<!---Dados da Base B: Idade, lista de bens, Endereço, Fonte de renda--->
 
 ## *Base C*
+Na Base C a busca é por Consistência e Disponibilidade como na Base B. A escolha de uma base de dados PostgreSQL será mantida pelo mesmo motivos.
 
+Para agilizar o acesso a base de dados C é necessário tomar algumas decisões extras, como:
+* Adicionar indexadores secundários
+* Otimizar as queries de acesso ao banco
+* Carregar apenas o que for usar
+
+<!---Dados da Base C: Última consulta do CPF em um Bureau de crédito, Movimentação Financeira no CPF, Dados relacionados a última compra com o cartão de crédito vinculado ao CPF--->
 
 ## Porque simplificar com o Teorema de CAP
-
 Caso não fosse feita a simplifição com o Teorema de CAP outros fatores gerais que deveriam ser analisados são:
-* Arquitetura de banco de dados escolhida (isso pode variar muito por conta da possibilidade de utilizar mais de um tipo de base de dados).
+* Arquitetura de banco de dados escolhida (isso pode variar muito por conta da possibilidade de utilizar mais de um tipo de base de dados num mesmo projeto - Persistência Poliglota).
 * Limites técnicos de cada base de dados como por exemplo quantidade de acessos por unidade de tempo, tempo de resposta, entre outros.
 * Variedade de bases de dados disponíveis no mercado.
 
