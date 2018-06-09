@@ -12,4 +12,4 @@ Na atualidade, quando se fala de mostrar os dados para um cliente, não basta ap
 
 Por esses motivos proponho como solução futura a implementação de um DXP.
 
-![Imagem representativa do DXP](https://github.com/tuliocpbs/images/DXP.png)
+![Imagem representativa do DXP](https://github.com/tuliocpbs/odesafio/blob/master/imagens/DXP.png)
