@@ -23,6 +23,7 @@ O uso de uma Warehouse é principalmente pelas diferentes necessidades dos 3 ser
 * Fácil e rápido acesso aos dados
 * Aumenta a qualidade e consistência dos dados
 * Resolve o problema de redundância de dados
+* Facilita a composição de dados provindos de diferentes tipos de bases
 
 ### Porque usar a ferramenta Hive?
 O Hive é uma ferramenta que irá facilitar a leitura, escrita e gerenciamento da grande quantidades de dados contida na Warehouse.
@@ -30,3 +31,12 @@ O Hive é uma ferramenta que irá facilitar a leitura, escrita e gerenciamento d
 ## Detalhando a Arquitetura
 
 ### Serviços
+Os serviços 1, 2 e 3 serão "dockerizados". Com esses serviços dentro de containers a escalabilidade se necessário ser mais fácil, assim como outras vantagens são adicionadas com a ferramenta Docker, como por exemplo:
+* Mais fácil de manter o sistema
+* Maior compatibilidade
+* Padronização
+* Melhora na produtividade, por conta de possíveis rollbacks para imagens anteriores do Docker
+
+O serviço 2, que irá utilizar os dados da Base B, tem uma peculiaridade por ser utilizado para o  cálculo do Score de Crédito. Para esse caso a ferramenta Lambda:
+
+> O AWS Lambda é um serviço de computação sem servidor que executa seu código em resposta a eventos e gerencia automaticamente os recursos computacionais adjacentes para você. [Amazon]
