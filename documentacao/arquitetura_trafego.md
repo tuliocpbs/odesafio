@@ -40,3 +40,25 @@ Os serviços 1, 2 e 3 serão "dockerizados". Com esses serviços dentro de conta
 O serviço 2, que irá utilizar os dados da Base B, tem uma peculiaridade por ser utilizado para o  cálculo do Score de Crédito. Para esse caso a ferramenta Lambda:
 
 > O AWS Lambda é um serviço de computação sem servidor que executa seu código em resposta a eventos e gerencia automaticamente os recursos computacionais adjacentes para você. [Amazon]
+
+### Comunicação
+Alguns exemplos de comunições do sistema.
+
+#### Histórico de movimentações financeiras de um cliente
+Para disponibilizar um histórico de movimentações financeiras de um cliente será necessário utilizar o Serviço 1 e o Serviço 3. O resultado final será um json com o nome do cliente e seu histórico de movimentações financeiras.
+
+Esse json será montado da seguinte maneira:
+1. O cliente escolhido será através do CPF
+2. Com o CPF será feita uma busca (Busca 1) na Base C, retornando as movimentações financeiras daquele cliente
+3. O json final será montado com o nome do cliente da Base A e o retorno da Busca 1
+
+Esse json será enviado para o serviço final (Web).
+
+#### Ranking dos Top 10 clientes com melhores Score de Crédito
+Para disponibilizar o ranking será necessário acionar o Serviço 1 e o Serviço 2. O resultado final será uma lista jsons com o nome do cliente, e o Score de Crédito.
+
+A comunicação será efutuada da seguinte maneira:
+1. O Serviço 2 será acionado para calcular os Scores de Crédito de cada cliente
+2. Os Scores juntamente com o CPF do cliente serão armazenados em D
+3. Com esse CPF armazenado em D, será feita a busca no Serviço 1 pelo nome do cliente
+4. Cada json da lista terá o nome do cliente, Score de Crédito e posicionamento no rank (de 1 a 10)
