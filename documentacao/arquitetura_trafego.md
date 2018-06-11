@@ -62,3 +62,8 @@ A comunicação será efutuada da seguinte maneira:
 2. Os Scores juntamente com o CPF do cliente serão armazenados em D
 3. Com esse CPF armazenado em D, será feita a busca no Serviço 1 pelo nome do cliente
 4. Cada json da lista terá o nome do cliente, Score de Crédito e posicionamento no rank (de 1 a 10)
+
+### Melhorando o Score de Crédito com aprendizagem de máquina online
+Com os dados disponíveis nos Serviço 2 e Serviço 3, é possível treinar modelos online utilizando a ferramenta Lambda (aprendizagem de máquina online) para prever futuras dívidas que um cliente pode vir a adquirir. Esse modelo será disparado sempre que uma nova transação do cliente for feita, com o passar do tempo esse modelo estará bem treinado e poderá ser utilizado para a previsão. Os dados que serão utilizados para treinar o modelo são lista de bens e fonte de renda provenientes do Serviço 2 e movimentação financeira, dados relacionados a última compra do  do Serviço 3. O modelo treinado será armazenado com dado no Warehouse D.
+
+Com o modelo treinado, uma nova variável poderá ser adicionada no cálculo do Score de Crédito. E o mesmo Ranking dos Top 10 clientes poderá ser feito, só que agora com mais informação.
